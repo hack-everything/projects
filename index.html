@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=1500">
+    <meta name="description" content="Sourfruit's website. Software developer by day, hacker by night. New Yorker all time."/>
+    <meta name="keywords" content="AI, artifical intelligence, code, python, c#, c++, ruby, sour, fruit, sourfruit"/>
+    <meta name="author" content="Sourfruit"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel='favicon' href='https://doggo.ninja/DtVC5j.png'>
+    <link rel='icon' href='https://doggo.ninja/DtVC5j.png'>
+    <link rel='shortcut icon' href='https://doggo.ninja/DtVC5j.png'>
+    <title>Sourfruit</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
+<style>
+    .hidden {
+        opacity:0;
+    }
+    .console-container {
+
+        font-family:monospace;
+        font-size:4em;
+        text-align:center;
+        color:white;
+        margin:auto;
+    }
+    .console-underscore {
+        display:inline-block;
+        position:relative;
+        top:-0.14em;
+        left:10px;
+    }
+</style>
+
+<script>
+    // function([string1, string2],target id,[color1,color2])
+    consoleText(['Sourfruit\'s Projects'], 'text',['greenyellow']);
+
+    function consoleText(words, id, colors) {
+        if (colors === undefined) colors = ['#fff'];
+        var visible = true;
+        var con = document.getElementById('console');
+        var letterCount = 1;
+        var x = 1;
+        var waiting = false;
+        var target = document.getElementById(id)
+        target.setAttribute('style', 'color:' + colors[0])
+        window.setInterval(function() {
+
+            if (letterCount === 0 && waiting === false) {
+                waiting = true;
+                target.innerHTML = words[0].substring(0, letterCount)
+                window.setTimeout(function() {
+                    var usedColor = colors.shift();
+                    colors.push(usedColor);
+                    var usedWord = words.shift();
+                    words.push(usedWord);
+                    x = 1;
+                    target.setAttribute('style', 'color:' + colors[0])
+                    letterCount += x;
+                    waiting = false;
+                }, 1000)
+            } else if (letterCount === words[0].length + 1 && waiting === false) {
+                waiting = true;
+                window.setTimeout(function() {
+                    x = -1;
+                    letterCount += x;
+                    waiting = false;
+                }, 1000)
+            } else if (waiting === false) {
+                target.innerHTML = words[0].substring(0, letterCount)
+                letterCount += x;
+            }
+        }, 120)
+        window.setInterval(function() {
+            if (visible === true) {
+                con.className = 'console-underscore hidden'
+                visible = false;
+
+            } else {
+                con.className = 'console-underscore'
+
+                visible = true;
+            }
+        }, 400)
+    }
+</script>
+<pre>
+                <banner>
+---------------------------------------------------------------------------------------------------
+<a href="https://def-not-hacking-the.net">Home</a> | <a href="https://twitter.com/s0urfruit">Twitter</a> | <a href="gpt.html">GPT-3.1</a> | <a href="mailto:hello@def-not-hacking-the.net?Subject=Hi%20Sourfruit!" target="_top">Contact</a> | <a href="vulns.html">Disclosed Vulnerabilities</a> | <a href="https://rent-a-pi.def-not-hacking-the.net">RentAPi</a> | <a href="https://login.def-not-hacking-the.net">Login</a> | <a href="https://cc.def-not-hacking-the.net">Check your CC</a>
+---------------------------------------------------------------------------------------------------
+                </banner>
+            </pre>
+<banner>
+                <pre>
+//========================================================================================\\
+||                                                                                        ||
+||      Hi, and welcome to my Projects page! This will just be hyperlinks to some         ||
+||  projects. Quite proud of most of these, most are hilarious. [Sense of Humor Required] ||
+||                                                                                        ||
+||                                                                                        ||
+||  <a href="https://fuck.def-not-hacking-the.net">The Fuck You Project</a> < a project where anyone can a list of names to say 'fuck you'   ||
+||  to those people.                                                                      ||
+||                                                                                        ||
+||  <a href="https://cc.def-not-hacking-the.net">The Credit Card Checker</a> < a site that checks if your CC is stolen.                    ||
+||                                                                                        ||
+||  <a href="https://m.def-not-hacking-the.net">Not a Malware</a> < Totally not me trying to install 'malware' via a funny macOS UI...    ||
+||                                                                                        ||
+||  <a href="https://bored.def-not-hacking-the.net">Oh, are you bored?</a> < Bored? Play with some Apple products.                            ||
+||                                                                                        ||
+||  <a href="https://hackertest.def-not-hacking-the.net">You're a hacker you say.</a> < Try to hack a very insecure login page.                    ||
+||                                                                                        ||
+\\========================================================================================//
+                </pre>
+</banner>
+
+
+<footer>
+    <p>&#169; 2020-Present, Sourfruit, All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
